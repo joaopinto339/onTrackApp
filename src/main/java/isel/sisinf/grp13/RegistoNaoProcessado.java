@@ -1,13 +1,12 @@
 package isel.sisinf.grp13;
-import jakarta.persistence.*;
 
-import java.sql.Date;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import java.sql.Timestamp;
 
-@Entity
-@Table(name = "registoinvalido")
-public class RegistoInvalido {
-
+public class RegistoNaoProcessado {
     @Id
     private int id;
     private int latitude;
@@ -16,9 +15,7 @@ public class RegistoInvalido {
     @JoinColumn()
     private Gps gps;
     private Timestamp marcaTemporal;
-    private Date date;
 
-    @Id
     public int getId() {
         return id;
     }
@@ -58,13 +55,4 @@ public class RegistoInvalido {
     public void setMarcaTemporal(Timestamp marcaTemporal) {
         this.marcaTemporal = marcaTemporal;
     }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
 }

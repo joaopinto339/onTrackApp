@@ -10,6 +10,11 @@ public class App {
     public static void main(String[] args){
         BLService blService = new BLService();
         //blService.insertParticular();
-        blService.removeParticular();
+        //blService.removeParticular();
+        //blService.updateParticular();
+        //blService.getTotalAlarms();
+        //blService.processRegistos();
+        //blService.insertVeiculo();
+        blService.eraseInvalids();
     }
 }

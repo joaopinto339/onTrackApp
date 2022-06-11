@@ -1,6 +1,6 @@
 package isel.sisinf.grp13.businesslogic;
 
-import isel.sisinf.grp13.model.Particular;
+import isel.sisinf.grp13.model.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -62,7 +62,15 @@ public class BLService {
     public void updateParticular(){
         EntityManager em = emf.createEntityManager();
         try{
-
+            System.out.println("ClientID?");
+            int clientId = scanner.nextInt();
+            scanner.nextLine(); //TODO weird bug que nao dava para inserir morada
+            System.out.println("Morada?");
+            String morada = scanner.nextLine();
+            System.out.println("Telefone?");
+            String telefone = scanner.nextLine();
+            Particular p = new Particular();
+            p.updateParticular(clientId, morada, telefone, em);
         }
         catch (Exception e){
             System.out.println(e.getMessage());
@@ -75,7 +83,10 @@ public class BLService {
 
     public void getTotalAlarms(){
         EntityManager em = emf.createEntityManager();
-        try{}
+        try{
+            Alarmes a = new Alarmes();
+            a.getAlarms(em);
+        }
         catch (Exception e){
             System.out.println(e.getMessage());
             throw e;
@@ -87,7 +98,10 @@ public class BLService {
 
     public void processRegistos(){
         EntityManager em = emf.createEntityManager();
-        try{}
+        try{
+            RegistoNaoProcessado rnp = new RegistoNaoProcessado();
+            rnp.processRecords(em);
+        }
         catch (Exception e){
             System.out.println(e.getMessage());
             throw e;
@@ -99,7 +113,26 @@ public class BLService {
 
     public void insertVeiculo(){
         EntityManager em = emf.createEntityManager();
-        try{}
+        try{
+            System.out.println("ClienteId?");
+            int clienteId = scanner.nextInt();
+            scanner.nextLine();
+            System.out.println("Matricula?");
+            String matricula = scanner.nextLine();
+            System.out.println("Nome de Condutor?");
+            String nomeCondutor = scanner.nextLine();
+            System.out.println("Contacto?");
+            String contacto = scanner.nextLine();
+            System.out.println("Estado?");
+            String state = scanner.nextLine();
+            System.out.println("Latitude, longitude, raio");
+            int lat = scanner.nextInt();
+            int lon = scanner.nextInt();
+            int raio = scanner.nextInt();
+            Veiculo v = new Veiculo(matricula,nomeCondutor,state,contacto);
+            ZonaVerde zv = new ZonaVerde(lat, lon, raio);
+            v.insertVeiculo(clienteId, v, zv, em);
+        }
         catch (Exception e){
             System.out.println(e.getMessage());
             throw e;
@@ -111,7 +144,9 @@ public class BLService {
 
     public void getAlarmeView(){
         EntityManager em = emf.createEntityManager();
-        try{}
+        try{
+
+        }
         catch (Exception e){
             System.out.println(e.getMessage());
             throw e;
@@ -121,9 +156,12 @@ public class BLService {
         }
     }
 
-    public void disableCliente(){
+    public void eraseInvalids(){
         EntityManager em = emf.createEntityManager();
-        try{}
+        try{
+            RegistoNaoProcessado rnp = new RegistoNaoProcessado();
+            rnp.eraseInvalids(em);
+        }
         catch (Exception e){
             System.out.println(e.getMessage());
             throw e;

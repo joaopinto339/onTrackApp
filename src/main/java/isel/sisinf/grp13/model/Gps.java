@@ -8,7 +8,6 @@ public class Gps {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
 
-
     public void setId(int id) {
         this.id = id;
     }

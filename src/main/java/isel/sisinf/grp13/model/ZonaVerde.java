@@ -9,6 +9,14 @@ public class ZonaVerde {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
     private int raio;
+    private int latitude;
+    private int longitude;
+
+    public ZonaVerde(int latitude, int longitude, int raio) {
+        this.raio = raio;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
 
     public int getId() {
         return id;
@@ -42,6 +50,5 @@ public class ZonaVerde {
         this.longitude = longitude;
     }
 
-    private int latitude;
-    private int longitude;
+
 }

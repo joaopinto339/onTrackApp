@@ -58,6 +58,18 @@ public class Particular extends Cliente {
         em.getTransaction().commit();
     }
 
+    public void updateParticular(int clientId, String morada, String telefone, EntityManager em){
+        em.getTransaction().begin();
+        Query q = em.createNativeQuery("call updateparticular(?1, ?2, ?3)");
+        q.setParameter(1, clientId);
+        if(morada.equals("null")) q.setParameter(2, null);
+        else q.setParameter(2, morada);
+        if(telefone.equals("null")) q.setParameter(3, null);
+        else q.setParameter(3, telefone);
+        q.executeUpdate();
+        em.getTransaction().commit();
+    }
+
     @Override
     public String toString() {
         return "Particular{" +

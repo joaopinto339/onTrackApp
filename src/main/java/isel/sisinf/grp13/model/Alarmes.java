@@ -15,4 +15,15 @@ public class Alarmes {
     @JoinColumn()
     private Veiculo matricula;//TODO chaves compostas -> verificar
 
+    public Alarmes() {}
+
+    public String getAlarms(EntityManager em){
+        em.getTransaction().begin();
+        Query q = em.createNativeQuery("select * from alarms");
+        //Query query = em.createQuery("select * from alarms");
+        String a = q.getResultList().get(1).toString();
+        //String a = q.getSingleResult().toString();
+        System.out.println(q.getResultList());
+        return a;
+    }
 }

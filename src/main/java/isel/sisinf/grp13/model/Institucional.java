@@ -1,4 +1,4 @@
-package isel.sisinf.grp13;
+package isel.sisinf.grp13.model;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Id;
@@ -8,6 +8,11 @@ import jakarta.persistence.OneToOne;
 public class Institucional extends Cliente{
     @Id
     private String nomeContacto;
+
+    public Institucional(String nome, String morada, String telefone, int nif, int ref, String nomeContacto) {
+        super(nome, morada, telefone, nif, ref);
+        this.nomeContacto = nomeContacto;
+    }
 
     public String getNomeContacto() {
         return nomeContacto;

@@ -1,4 +1,4 @@
-package isel.sisinf.grp13;
+package isel.sisinf.grp13.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
@@ -13,8 +13,20 @@ abstract public class Cliente {
     private String morada;
     private String telefone;
     private int nif;
-    private String ref;
-    private boolean ativo = true;
+    private int ref;
+    private boolean ativo;
+
+    public Cliente(String nome, String morada, String telefone, int nif, int ref){
+        this.nome = nome;
+        this.morada = morada;
+        this.telefone = telefone;
+        this.nif = nif;
+        this.ref = ref;
+        this.ativo = true;
+    }
+
+    protected Cliente() {
+    }
 
     @Id
     public int getId() {
@@ -57,11 +69,11 @@ abstract public class Cliente {
         this.nif = nif;
     }
 
-    public String getRef() {
+    public int getRef() {
         return ref;
     }
 
-    public void setRef(String ref) {
+    public void setRef(int ref) {
         this.ref = ref;
     }
 

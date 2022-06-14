@@ -1,10 +1,9 @@
 package isel.sisinf.grp13.model;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "institucional")
 public class Institucional extends Cliente{
     @Id
     private String nomeContacto;
@@ -13,6 +12,8 @@ public class Institucional extends Cliente{
         super(nome, morada, telefone, nif, ref);
         this.nomeContacto = nomeContacto;
     }
+
+    public Institucional() {}
 
     public String getNomeContacto() {
         return nomeContacto;

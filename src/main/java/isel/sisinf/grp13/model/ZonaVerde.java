@@ -1,9 +1,9 @@
 package isel.sisinf.grp13.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "veiculo")
 public class ZonaVerde {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -16,6 +16,10 @@ public class ZonaVerde {
         this.raio = raio;
         this.latitude = latitude;
         this.longitude = longitude;
+    }
+
+    public ZonaVerde() {
+
     }
 
     public int getId() {

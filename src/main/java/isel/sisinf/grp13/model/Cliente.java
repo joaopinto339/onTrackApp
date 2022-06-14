@@ -1,11 +1,10 @@
 package isel.sisinf.grp13.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-abstract public class Cliente {
+@Entity
+@Table(name = "cliente")
+public class Cliente {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
@@ -16,6 +15,7 @@ abstract public class Cliente {
     private int ref;
     private boolean ativo;
 
+
     public Cliente(String nome, String morada, String telefone, int nif, int ref){
         this.nome = nome;
         this.morada = morada;
@@ -25,7 +25,7 @@ abstract public class Cliente {
         this.ativo = true;
     }
 
-    protected Cliente() {
+    public Cliente() {
     }
 
     @Id

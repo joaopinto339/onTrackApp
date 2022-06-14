@@ -1,11 +1,10 @@
 package isel.sisinf.grp13.model;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
-import java.sql.Timestamp;
+import jakarta.persistence.*;
 
+import java.sql.Timestamp;
+@Entity
+@Table(name = "registosvalidos")
 public class RegistoValido {
     @Id
     private int id;

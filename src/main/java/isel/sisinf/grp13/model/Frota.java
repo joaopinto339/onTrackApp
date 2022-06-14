@@ -1,31 +1,25 @@
 package isel.sisinf.grp13.model;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
+@Entity
 public class Frota {
-    @OneToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn()
-    private Veiculo matricula;//TODO chaves compostas -> verificar
+    @EmbeddedId
+    private FrotaPk id;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn()
-    private Cliente clienteId;
-
-    public Veiculo getMatricula() {
-        return matricula;
+    public Frota(FrotaPk id) {
+        this.id = id;
     }
 
-    public void setMatricula(Veiculo matricula) {
-        this.matricula = matricula;
+    public Frota() {}
+
+    public FrotaPk getId() {
+        return id;
     }
 
-    public Cliente getClienteId() {
-        return clienteId;
-    }
-
-    public void setClienteId(Cliente clienteId) {
-        this.clienteId = clienteId;
+    public void setId(FrotaPk id) {
+        this.id = id;
     }
 }

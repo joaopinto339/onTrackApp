@@ -3,7 +3,8 @@ package isel.sisinf.grp13.model;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
-
+@Entity
+@Table(name = "registosnaoprocessados")
 public class RegistoNaoProcessado {
     @Id
     private int id;

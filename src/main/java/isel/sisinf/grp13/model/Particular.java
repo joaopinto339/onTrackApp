@@ -2,6 +2,8 @@ package isel.sisinf.grp13.model;
 
 import jakarta.persistence.*;
 
+@Entity
+@Table(name = "particular")
 public class Particular extends Cliente {
     @Id
     private int cc;
@@ -10,8 +12,7 @@ public class Particular extends Cliente {
     @JoinColumn()
     private Cliente clienteId; //TODO @Embedded e ver cascadeType= Persist
 
-    public Particular() {
-    }
+    public Particular() {}
 
     public Particular(String nome, String morada, String telefone, int nif, int ref, int cc) {
         super(nome, morada, telefone, nif, ref);

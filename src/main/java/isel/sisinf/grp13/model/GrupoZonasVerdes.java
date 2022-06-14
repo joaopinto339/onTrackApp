@@ -1,10 +1,9 @@
 package isel.sisinf.grp13.model;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "grupozonasverdes")
 public class GrupoZonasVerdes {
     @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn()

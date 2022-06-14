@@ -2,6 +2,7 @@ package isel.sisinf.grp13.model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "gps")
 public class Gps {
 
     @Id

@@ -1,7 +1,8 @@
 package isel.sisinf.grp13.model;
 
 import jakarta.persistence.*;
-
+@Entity
+@Table(name = "alarme")
 public class Alarmes {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
